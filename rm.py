@@ -9,11 +9,7 @@ PASSWORD = "freelance"
 import sys
 from time import sleep, strftime
 
-f = open('%s.log' % NAME, 'a')
-f.write("%s %s\n"%(strftime("%d.%m.%Y"), strftime("%H:%M:%S")))
-f.close()
-f = open('%s.log' % NAME, 'a')
-sys.stderr = f
+
 
 ##################------Основные
 # import os
@@ -107,7 +103,7 @@ class Driver:#Работа с драйвером
 				self.binary = FirefoxBinary(tor_path)
 	def open(self):
 		if self.typeD == "Chrome":
-			self.driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromedriver",chrome_options=self.chrome_options)
+			self.driver = webdriver.Chrome(executable_path="chromedriver.exe",chrome_options=self.chrome_options)
 		elif self.typeD == "FF":
 			if not self.isTor:
 				self.driver = webdriver.Firefox()
@@ -128,7 +124,7 @@ class Driver:#Работа с драйвером
 	def xpath(self, xpath, is_one = 1, is_displayed = 1, is_click = 1, clickAll = 0, start_wait = 1.5, wait = None):
 		sleep(start_wait)
 		thisWait = wait if wait != None else self.wait
-		for waitOne in xrange(thisWait + 1):
+		for waitOne in range(thisWait + 1):
 			elems = self.driver.find_elements_by_xpath(xpath)
 			if is_one and len(elems) >= 1 and ((not is_displayed) or (is_displayed and elems[0].is_displayed())):
 				if is_click:
@@ -172,9 +168,9 @@ try:# Настройки
 except:
 	pass
 
+NUM = 4
 
-
-
+from selenium.webdriver.support.ui import Select
 print( "TEST")
 
 ua = UA()
@@ -182,13 +178,42 @@ driver = Driver(UserAgent = ua, typeD = "Chrome")
 print(1)
 
 driver.open()
-print(1)
+print("Maximize and fixed current window")
 driver.max_win()
-print(1)
+window = driver.driver.current_window_handle
+
+print("GoTo")
 driver.get("https://www.realmadrid.com/en/tickets")
-print(1)
-print(driver.getTitle())
-print(1)
+
+print("Click full button")
+driver.xpath("//a[@class='btn btn_full']")
+
+print("Switch window")
+driver.driver.switch_to_window(window)
+driver.driver.close()
+windows = driver.driver.window_handles
+driver.driver.switch_to_window(windows[0])
+
+
+# padredamian
+# conchaespina
+# castellana
+# rafaelsalgado
+
+select = Select(driver.xpath('//select[@id="num-entradas"]', is_click = 0, start_wait = 2.5, wait = 5))
+
+select.select_by_value("%s" % NUM)
+
+
+driver.xpath("//*[@id='boton-seleccion-entradas']")
+
+
+driver.xpath("//span[@data-sector='rafaelsalgado']")
+
+
+for i in range(NUM, 15):
+	if driver.xpath("//*[@data-available-seats='%s']" % i, is_one=1, is_click=1):
+		break
 
 
 sleep(500)
