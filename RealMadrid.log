@@ -1,0 +1,154 @@
+04.04.2018 22:36:59
+Traceback (most recent call last):
+  File "rm.py", line 183, in <module>
+    driver.open()
+  File "rm.py", line 110, in open
+    self.driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromedriver",chrome_options=self.chrome_options)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/chrome/webdriver.py", line 75, in __init__
+    desired_capabilities=desired_capabilities)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 154, in __init__
+    self.start_session(desired_capabilities, browser_profile)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 243, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 310, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/remote_connection.py", line 466, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/remote_connection.py", line 490, in _request
+    resp = self._conn.getresponse()
+  File "/usr/lib/python3.5/http/client.py", line 1197, in getresponse
+    response.begin()
+  File "/usr/lib/python3.5/http/client.py", line 297, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.5/http/client.py", line 258, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.5/socket.py", line 575, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+04.04.2018 22:37:48
+Traceback (most recent call last):
+  File "rm.py", line 183, in <module>
+    driver.open()
+  File "rm.py", line 110, in open
+    self.driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromedriver",chrome_options=self.chrome_options)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/chrome/webdriver.py", line 75, in __init__
+    desired_capabilities=desired_capabilities)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 154, in __init__
+    self.start_session(desired_capabilities, browser_profile)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 243, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 310, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/remote_connection.py", line 466, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/remote_connection.py", line 490, in _request
+    resp = self._conn.getresponse()
+  File "/usr/lib/python3.5/http/client.py", line 1197, in getresponse
+    response.begin()
+  File "/usr/lib/python3.5/http/client.py", line 297, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.5/http/client.py", line 258, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.5/socket.py", line 575, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+04.04.2018 22:38:14
+Traceback (most recent call last):
+  File "rm.py", line 183, in <module>
+    
+  File "rm.py", line 110, in open
+    self.driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromedriver",chrome_options=self.chrome_options)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/chrome/webdriver.py", line 75, in __init__
+    desired_capabilities=desired_capabilities)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 154, in __init__
+    self.start_session(desired_capabilities, browser_profile)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 243, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 310, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/remote_connection.py", line 466, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/remote_connection.py", line 490, in _request
+    resp = self._conn.getresponse()
+  File "/usr/lib/python3.5/http/client.py", line 1197, in getresponse
+    response.begin()
+  File "/usr/lib/python3.5/http/client.py", line 297, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.5/http/client.py", line 258, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.5/socket.py", line 575, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+04.04.2018 22:38:22
+Traceback (most recent call last):
+  File "rm.py", line 184, in <module>
+    driver.open()
+  File "rm.py", line 110, in open
+    self.driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromedriver",chrome_options=self.chrome_options)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/chrome/webdriver.py", line 75, in __init__
+    desired_capabilities=desired_capabilities)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 154, in __init__
+    self.start_session(desired_capabilities, browser_profile)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 243, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 312, in execute
+    self.error_handler.check_response(response)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally
+  (Driver info: chromedriver=2.35 (0),platform=Linux 4.13.0-38-generic x86_64)
+
+04.04.2018 23:03:09
+Traceback (most recent call last):
+  File "rm.py", line 184, in <module>
+    driver.open()
+  File "rm.py", line 110, in open
+    self.driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromedriver",chrome_options=self.chrome_options)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/chrome/webdriver.py", line 75, in __init__
+    desired_capabilities=desired_capabilities)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 154, in __init__
+    self.start_session(desired_capabilities, browser_profile)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 243, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 310, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/remote_connection.py", line 466, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/remote_connection.py", line 490, in _request
+    resp = self._conn.getresponse()
+  File "/usr/lib/python3.5/http/client.py", line 1197, in getresponse
+    response.begin()
+  File "/usr/lib/python3.5/http/client.py", line 297, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.5/http/client.py", line 258, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.5/socket.py", line 575, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+04.04.2018 23:03:44
+Traceback (most recent call last):
+  File "rm.py", line 184, in <module>
+    driver.open()
+  File "rm.py", line 110, in open
+    self.driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromedriver",chrome_options=self.chrome_options)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/chrome/webdriver.py", line 75, in __init__
+    desired_capabilities=desired_capabilities)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 154, in __init__
+    self.start_session(desired_capabilities, browser_profile)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 243, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/webdriver.py", line 310, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/remote_connection.py", line 466, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/home/mitated/freelance/realmadrid/lib/python3.5/site-packages/selenium/webdriver/remote/remote_connection.py", line 490, in _request
+    resp = self._conn.getresponse()
+  File "/usr/lib/python3.5/http/client.py", line 1197, in getresponse
+    response.begin()
+  File "/usr/lib/python3.5/http/client.py", line 297, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.5/http/client.py", line 258, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.5/socket.py", line 575, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
