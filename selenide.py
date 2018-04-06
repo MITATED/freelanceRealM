@@ -18,7 +18,7 @@ class Driver:#Работа с драйвером
 	def __init__(self, typeD = "Chrome", proxy = None, isTor = 0, UserAgent = 0):
 		# super(Driver, self).__init__()
 		self.typeD = typeD
-		self.wait = 15
+		self.wait = 5
 		self.isTor = isTor
 		self.UserAgent = UserAgent
 		self.proxy = proxy
@@ -83,7 +83,7 @@ class Driver:#Работа с драйвером
 			return 1
 		except:
 			return 0
-	def xpath(self, xpath, is_one = 1, is_displayed = 1, is_click = 1, clickAll = 0, start_wait = 3, wait = None):
+	def xpath(self, xpath, is_one = 1, is_displayed = 1, is_click = 1, clickAll = 0, start_wait = 0.5, wait = None):
 		sleep(start_wait)
 		thisWait = wait if wait != None else self.wait
 		for waitOne in range(thisWait + 1):

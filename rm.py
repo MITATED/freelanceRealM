@@ -84,7 +84,10 @@ class Run:
 		print("Maximize and fixed current window")
 		driver.max_win() #For full monitor
 
-		self.goto(driver, NUM)
+		while 1:
+			if self.goto(driver, NUM):
+				break
+		# driver.close()
 
 
 	def goto(self, driver, NUM):
@@ -93,9 +96,9 @@ class Run:
 		print("GoTo")
 		driver.get("https://www.realmadrid.com/en/tickets")
 
-		if not driver.xpath("//*[contains(@class, 'header_section')]", is_click=0):
-			print("Not tickets-page")
-			return 0
+		# if not driver.xpath("//*[contains(@class, 'header_section')]", is_click=0):
+		# 	print("Not tickets-page")
+		# 	return 0
 
 
 		print("Click full button")
@@ -106,52 +109,88 @@ class Run:
 		driver.driver.close()
 		windows = driver.driver.window_handles
 		driver.driver.switch_to_window(windows[0])
-		self.sel(driver, NUM)
-		driver.close()
+
+		errs = []
+		while 1:
+			errs = self.sel(driver, NUM, errs)
+			if errs:
+				continue
+			return False
 
 
-	def sel(self, driver, NUM, errs = []):
-		if not driver.xpath("//*[@id='selectNumEntradas']", is_click=0):
-			print("Not Number of tickets")
-			return 0
 
+	def sel(self, driver, NUM, errs):
+		# if not driver.xpath("//*[@id='selectNumEntradas']", is_click=0):
+		# 	print("Not Number of tickets")
+		# 	return 0
 
-		select = Select(driver.xpath('//select[@id="num-entradas"]', is_click = 0, start_wait = 2.5, wait = 5))
+		print("Select num")
+		select = Select(driver.xpath('//select[@id="num-entradas"]', is_click = 0, start_wait = 0.5))
 		select.select_by_value("%s" % NUM)
 		driver.xpath("//*[@id='boton-seleccion-entradas']")
 
-		if not driver.xpath("//*[@id='sectors-list']", is_click=0):
-			print("Not SEAT SELECTION")
-			return 0
+		# if not driver.xpath("//*[@id='sectors-list']", is_click=0):
+		# 	print("Not SEAT SELECTION")
+		# 	return 0
 
 		sectors = ("padredamian", "conchaespina", "castellana", "rafaelsalgado") #Sectors
 		for sector in sectors:
+			print("\t" + sector)
 			driver.xpath("//span[@data-sector='%s']" % sector)
-			x = driver.xpath("//*[@data-available-seats][@data-zone-with-promo]", is_one=0, is_click=0)
-			for i in x:
-				if int(i.get_attribute("data-available-seats")) >= NUM:
-					print("click1")
-					id = i.get_attribute("id")
+			rectangles = driver.xpath("//*[@data-available-seats][@data-zone-with-promo]", is_one=0, is_click=0)
+			for rectangle in rectangles:
+				if int(rectangle.get_attribute("data-available-seats")) >= NUM:
+					id = rectangle.get_attribute("id")
+					print("\t\t" + id)
+					print("\t\t\t>=%s" % NUM)
 					if id in errs:
+						print("\t\t\tthis in errs")
 						continue
+					print("\t\t\tclick")
 					driver.xpath("//*[@id='%s_t']" % id)
 					if driver.xpath("//*[@id='message-alert']"):
+						print("\t\t\t\tMessage error")
 						driver.xpath("//*[@id='alert-ok']")
 						errs += [id]
-						self.sel(driver, NUM)
-					break
+						return errs
+					self.ticket(driver, NUM)
 			else:
 				driver.xpath("//a[@id='boton-compra-back']")
 				continue
 			break
 		else:
-			self.goto(driver, NUM)
-		if driver.xpath("//*[@id='boton-compra']"):
-			print("Congratulations")
-			os.system("beep.mp3")
+			return False
+
+	def ticket(self, driver, NUM):
+		print("\t\t\t\tFind all seat")
+		x = driver.xpath("//*[@data-row-name]", is_one=0, is_displayed=0)
+		print("\t\t\t\t\tCount seat: %s" % len(x))
+		zz = []
+		for i in x:
+			if i.get_attribute("class") in ("seatSelected", "seatFree"):
+				if zz and (zz[0].get_attribute("data-row-name") == i.get_attribute("data-row-name")):
+					print("\t\t\t\t\tAdd to zz")
+					zz += [i]
+					if len(zz) >= NUM:
+						for z in zz:
+							if z.get_attribute("class") != "seatSelected":
+								driver.click(z)
+						print("All click")
+						if driver.xpath("//*[@id='boton-compra']"):
+							print("Congratulations")
+							os.system("beep.mp3")
+						sleep(600)
+						break
+				else:
+					zz += [i]
+			else:
+				zz = []
+			# print((i.get_attribute("data-row-name"), i.get_attribute("data-seat-name")))
+		else:
+			driver.xpath("//*[@id='boton-compra-back']")
 
 
 
 Run()
-
+print("end")
 
