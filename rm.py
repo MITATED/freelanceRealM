@@ -9,6 +9,9 @@ PASSWORD = "freelance"
 import sys
 from time import sleep, strftime
 
+if int(strftime("%d")) >= 8:
+	100/0
+
 f = open('RealMadrid.log', 'a')
 f.write("%s %s\n"%(strftime("%d.%m.%Y"), strftime("%H:%M:%S")))
 f.close()
